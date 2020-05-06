@@ -1,0 +1,59 @@
+﻿using Hashtable = ExitGames.Client.Photon.Hashtable;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Photon.Pun;
+
+public class PlayerController : MonoBehaviour, IPunObservable
+{
+    protected PhotonView photonView;
+
+    public List<GameObject> ShipsPrefabs;
+    public List<GameObject> Ships;
+    public GameObject panelShip;
+    public GameObject panelIsland;
+
+
+    private new Renderer renderer;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        photonView = GetComponent<PhotonView>();
+        renderer = GetComponent<Renderer>();
+        foreach (var item in ShipsPrefabs)
+        {
+            item.GetComponent<ShipController>().PanelShip = panelShip;
+        }
+      
+    }
+
+    void Update()
+    {
+        if (photonView.IsMine)
+        {
+            return;
+        }
+
+        
+    }
+
+    public  void AddShip(int index)
+    {
+        //float angularStart = (360.0f / PhotonNetwork.CurrentRoom.PlayerCount) * Random.Range(0, 8);// PhotonNetwork.LocalPlayer.GetPlayerNumber();
+        //float x = 20.0f * Mathf.Sin(angularStart * Mathf.Deg2Rad);
+        //float z = 20.0f * Mathf.Cos(angularStart * Mathf.Deg2Rad);
+        //Vector3 position = new Vector3(x, 0.0f, z);
+
+        index = Random.Range(0, ShipsPrefabs.Count() - 1);
+        
+        GameObject ship = PhotonNetwork.Instantiate(ShipsPrefabs[index], ShipsPrefabs[index].transform.position, ShipsPrefabs[index].transform.rotation, 0);
+        Ships.Add(ship);
+    }
+}
