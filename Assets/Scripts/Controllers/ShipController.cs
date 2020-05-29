@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,16 @@ public class ShipController : MonoBehaviour
     bool goToHome = false;
     private Vector3 selectPosition;
     bool isFirstTime = true;
+    private bool Moving = true;
+    private bool CompletedJourney = false;
+    private static PathRequestManager pathManager;
+
+
     void Start()
     {
         photonView = GetComponent<PhotonView>();
         customProperty = GetComponent<ObjectProperty>();
+        pathManager = GetComponentInChildren<PathRequestManager>();
     }
     // Update is called once per frame
     void Update()
@@ -38,13 +45,11 @@ public class ShipController : MonoBehaviour
         else { 
             isFirstTime = true;
         }
-        if (Target != null && HomeIsland != null)
+        
+        if (CompletedJourney)
         {
-            if (Target.transform.position == gameObject.transform.position || HomeIsland.transform.position == gameObject.transform.position)
-            {
-                goToHome = !goToHome;
-                FollowGoal();
-            }
+            FollowGoal();
+            CompletedJourney = false;
         }
 
        //photonView.RPC("FollowPath", RpcTarget.AllViaServer);
@@ -73,9 +78,9 @@ public class ShipController : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Island"))
             {
                 Target = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки звідки звозити
-                if (HomeIsland != null) {
-                    FollowGoal();
-                }
+                //if (HomeIsland != null) {
+                //    FollowGoal();
+                //}
                 return true;
             }
         }
@@ -97,10 +102,10 @@ public class ShipController : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Island"))
             {
                 HomeIsland = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки куда ресурси возити
-                if (Target != null)
-                {
-                    FollowGoal();
-                }
+                //if (Target != null)
+                //{
+                //    FollowGoal();
+                //}
                 return true;
             }
 
@@ -108,21 +113,36 @@ public class ShipController : MonoBehaviour
         return false;
     }
     
+    public void SetMoving(bool value)
+    {
+        Moving = value;
+        if (value)
+        {
+            FollowGoal();
+        }
+    }
+
     public void FollowGoal()
     {
-        if (goToHome)
+        try
         {
-            PathRequestManager.RequestPath(transform.position, HomeIsland.transform.position, OnPathFound);
-        }
-        else
+            if (goToHome)
+            {
+                pathManager.RequestPath(transform.position, HomeIsland.transform.position, OnPathFound);
+            }
+            else
+            {
+                pathManager.RequestPath(transform.position, Target.transform.position, OnPathFound);
+
+            }
+        }catch(Exception ex)
         {
-            PathRequestManager.RequestPath(transform.position, Target.transform.position, OnPathFound);
 
         }
     }
     public void FollowGoal(GameObject targetObject)
     {
-        PathRequestManager.RequestPath(transform.position, targetObject.transform.position, OnPathFound);
+        pathManager.RequestPath(transform.position, targetObject.transform.position, OnPathFound);
     }
 
     #region A*
@@ -146,18 +166,24 @@ public class ShipController : MonoBehaviour
         Vector3 currentWaypoint = path[0];
         while (true)
         {
+            if (!Moving)
+            {
+                print("Stop");
+                yield break;
+            }
+
             if (transform.position == currentWaypoint)
             {
                 targetIndex++;
                 if (targetIndex >= path.Length)
                 {
                     print("have reached the goal");
+                    goToHome = !goToHome;
+                    CompletedJourney = true;
                     yield break;
                 }
                 currentWaypoint = path[targetIndex];
-                print("path[targetIndex]: " + targetIndex);
             }
-            print(transform.position);
             Vector3 targetDirection = currentWaypoint - transform.position;
 
           

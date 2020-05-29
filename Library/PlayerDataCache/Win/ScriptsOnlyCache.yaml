@@ -40,7 +40,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.ServerSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -110,7 +109,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9928}
     - Class: 114
+      Script: {instanceID: 9966}
+    - Class: 114
       Script: {instanceID: 9992}
+    - Class: 114
+      Script: {instanceID: 10032}
     - Class: 114
       Script: {instanceID: 10074}
     - Class: 114
@@ -164,7 +167,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11266}
     - Class: 114
+      Script: {instanceID: 11362}
+    - Class: 114
       Script: {instanceID: 11368}
+    - Class: 114
+      Script: {instanceID: 11540}
     - Class: 114
       Script: {instanceID: 11716}
     - Class: 114
@@ -513,7 +520,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 61d88724c6bde68633583c9e1731178a
+      Hash: 5fd01280c16b1c1fe42253f9d11b18ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -1653,7 +1660,7 @@ ScriptsOnlyBuild:
     className: BoolInputField
   - hash:
       serializedVersion: 2
-      Hash: a69315718f6101732a5d4071feb8d7fc
+      Hash: 874c32b43e1a7163aeffb53fca64dad7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShipMenu
@@ -1703,4 +1710,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/RandomMap.unity
-  playerPath: D:/WorkSpace/BattleOfISlands/BuildProject/BattleIslandsX86/BattleOfISlands.exe
+  playerPath: D:/BuildProject/Demo.01/BattleOfISlands.exe

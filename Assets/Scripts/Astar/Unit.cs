@@ -9,11 +9,13 @@ public class Unit : MonoBehaviour
     public float speed = 5;
     Vector3[] path;
     int targetIndex;
+    private static PathRequestManager pathManager;
 
     public bool restart=false;
     void Start()
     {
-        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        pathManager = GetComponentInChildren<PathRequestManager>();
+        pathManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
     private void Update()
@@ -22,13 +24,13 @@ public class Unit : MonoBehaviour
         {
             print("restart path");
             restart = false;
-            PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+            pathManager.RequestPath(transform.position, target.position, OnPathFound);
         }
     }
 
     public void StartNow()
     {
-        PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        pathManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
     private void OnPathFound(Vector3[] newPath, bool pathSaccessFull)

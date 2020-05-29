@@ -6,8 +6,11 @@ public class ShipMenu : BaseMenu
 {
     public ShipController shipController;
 
+    public GameObject StartButton;
+    public GameObject StopButton;
     public bool selectHome = false;
     public bool selectTarget = false;
+    public bool startStop = false;
     public void Update()
     {
         if (selectHome)
@@ -24,6 +27,19 @@ public class ShipMenu : BaseMenu
     {
         shipController = controller;
         gameObject.SetActive(true);
+    }
+
+    public void OnStartButton()
+    {
+        shipController.SetMoving(true);
+        StartButton.SetActive(false);
+        StopButton.SetActive(true);
+    }
+    public void OnStopButton()
+    {
+        shipController.SetMoving(false);
+        StartButton.SetActive(true);
+        StopButton.SetActive(false);
     }
 
     public void OnSelectHome()

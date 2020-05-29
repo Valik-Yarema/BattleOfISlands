@@ -8,7 +8,7 @@ public class PathRequestManager : MonoBehaviour
     Queue<PathRequest> pathRequestsQueue = new Queue<PathRequest>();
     PathRequest currentPathRequest;
 
-    static PathRequestManager instance;
+    PathRequestManager instance;
     PathFinding pathFinding;
 
     bool isProcessingPath;
@@ -18,7 +18,7 @@ public class PathRequestManager : MonoBehaviour
         instance = this;
         pathFinding = GetComponent<PathFinding>();
     }
-    public static void RequestPath(Vector3 pathStart,Vector3 pathEnd,Action <Vector3[],bool> callback)
+    public void RequestPath(Vector3 pathStart,Vector3 pathEnd,Action <Vector3[],bool> callback)
     {
         PathRequest newRequest = new PathRequest(pathStart, pathEnd, callback);
         instance.pathRequestsQueue.Enqueue(newRequest);
