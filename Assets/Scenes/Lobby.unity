@@ -2574,10 +2574,10 @@ MonoBehaviour:
   JoinRandomRoomPanel: {fileID: 355409099}
   RoomListPanel: {fileID: 119999694}
   RoomListContent: {fileID: 1753449315}
-  RoomListEntryPrefab: {fileID: 114706, guid: a64a7970cc834734c811e642724bd24e, type: 3}
+  RoomListEntryPrefab: {fileID: 114706, guid: 54617fc1ebc20484bb6093966617860b, type: 3}
   InsideRoomPanel: {fileID: 1759314559}
   StartGameButton: {fileID: 2078171559}
-  PlayerListEntryPrefab: {fileID: 195212, guid: 1412c56e195cebe42946e12516884d21,
+  PlayerListEntryPrefab: {fileID: 195212, guid: 93364f5ad24562542be8d365fd029329,
     type: 3}
 --- !u!222 &1097583314
 CanvasRenderer:

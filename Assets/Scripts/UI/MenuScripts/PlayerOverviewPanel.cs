@@ -22,7 +22,7 @@ public class PlayerOverviewPanel : MonoBehaviourPunCallbacks
             entry.transform.SetParent(gameObject.transform);
             entry.transform.localScale = Vector3.one;
             entry.GetComponent<Text>().color = BattleOfIslandGame.GetColor(p.GetPlayerNumber());
-            entry.GetComponent<Text>().text = string.Format("{0} Score: {1}\n", p.NickName, p.GetScore());
+            entry.GetComponent<Text>().text = string.Format("{0}\n", p.NickName);
 
             playerListEntries.Add(p.ActorNumber, entry);
         }

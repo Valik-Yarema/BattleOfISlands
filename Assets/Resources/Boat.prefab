@@ -240,7 +240,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   speed: 20
   PanelShip: {fileID: 0}
-  customProperty: {fileID: 0}
+  customProperty: {fileID: 4238191201689884279}
 --- !u!114 &4584763473880873339
 MonoBehaviour:
   m_ObjectHideFlags: 0

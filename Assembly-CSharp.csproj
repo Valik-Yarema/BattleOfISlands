@@ -88,7 +88,16 @@
     <Compile Include="Assets\Scripts\Controllers\ShipController.cs" />
     <Compile Include="Assets\Scripts\Game\BattleOfIslandGame.cs" />
     <Compile Include="Assets\Scripts\Game\Ship.cs" />
+    <Compile Include="Assets\Scripts\Island\BaseIsland.cs" />
+    <Compile Include="Assets\Scripts\Island\IslandsType\IslandIGold.cs" />
+    <Compile Include="Assets\Scripts\Island\IslandsType\IslandIron.cs" />
+    <Compile Include="Assets\Scripts\Island\IslandsType\IslandStone.cs" />
+    <Compile Include="Assets\Scripts\Island\IslandsType\IslandWood.cs" />
+    <Compile Include="Assets\Scripts\Island\IslandType.cs" />
     <Compile Include="Assets\Scripts\Island\PortPlaseScript.cs" />
+    <Compile Include="Assets\Scripts\Island\Resource.cs" />
+    <Compile Include="Assets\Scripts\Island\ResourcesCount.cs" />
+    <Compile Include="Assets\Scripts\Island\ResourceType.cs" />
     <Compile Include="Assets\Scripts\UI\HitSelectObject.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\LobbyMainPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\LobbyTopPanel.cs" />
