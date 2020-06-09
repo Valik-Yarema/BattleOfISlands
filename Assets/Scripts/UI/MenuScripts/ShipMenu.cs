@@ -44,13 +44,13 @@ public class ShipMenu : BaseMenu
 
     public void OnSelectHome()
     {
-        if (selectTarget) return; 
+        if (selectTarget&&!selectHome) return; 
 
         selectHome = true;
     }
     public void OnSelectIsland()
     {
-        if (selectHome) return;
+        if (selectHome&&!selectTarget) return;
 
         selectTarget = true;
     }

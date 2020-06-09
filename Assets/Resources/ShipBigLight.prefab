@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8764794392058494415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 4587670816071807253}
@@ -236,10 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d27c16945e408408a52c93ec36d780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerController: {fileID: 0}
   HomeIsland: {fileID: 0}
   Target: {fileID: 0}
   speed: 20
-  PanelShip: {fileID: 0}
   customProperty: {fileID: 0}
 --- !u!114 &5881907667360581433
 MonoBehaviour:

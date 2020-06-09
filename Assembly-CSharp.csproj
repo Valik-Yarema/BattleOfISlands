@@ -82,6 +82,8 @@
     <Compile Include="Assets\Scripts\Astar\PathFinding.cs" />
     <Compile Include="Assets\Scripts\Astar\PathRequestManager.cs" />
     <Compile Include="Assets\Scripts\Astar\Unit.cs" />
+    <Compile Include="Assets\Scripts\Controllers\IslandController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ListResources.cs" />
     <Compile Include="Assets\Scripts\Controllers\ObjectProperty.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerGameManager.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Assets\Scripts\Game\BattleOfIslandGame.cs" />
     <Compile Include="Assets\Scripts\Game\Ship.cs" />
     <Compile Include="Assets\Scripts\Island\BaseIsland.cs" />
+    <Compile Include="Assets\Scripts\Island\BentIslandType.cs" />
     <Compile Include="Assets\Scripts\Island\IslandsType\IslandIGold.cs" />
     <Compile Include="Assets\Scripts\Island\IslandsType\IslandIron.cs" />
     <Compile Include="Assets\Scripts\Island\IslandsType\IslandStone.cs" />
@@ -104,6 +107,8 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\PlayerListEntry.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\RoomListEntry.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScripts\BaseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuScripts\IslandMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuScripts\IslandSelectMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScripts\PlayerOverviewPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScripts\ShipMenu.cs" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />

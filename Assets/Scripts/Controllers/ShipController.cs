@@ -8,10 +8,10 @@ using UnityEngine;
 public class ShipController : MonoBehaviour
 {
     protected PhotonView photonView;
+    public PlayerController PlayerController;
     public GameObject HomeIsland;
     public GameObject Target;
     public float speed = 5;
-    public GameObject PanelShip;
 
     public ObjectProperty customProperty;
     Vector3[] path;
@@ -21,6 +21,7 @@ public class ShipController : MonoBehaviour
     bool isFirstTime = true;
     private bool Moving = true;
     private bool CompletedJourney = false;
+    private IslandSelectMenu islandSelectMenu;
     private static PathRequestManager pathManager;
 
 
@@ -29,7 +30,9 @@ public class ShipController : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         customProperty = GetComponent<ObjectProperty>();
         pathManager = GetComponentInChildren<PathRequestManager>();
+        islandSelectMenu = PlayerController.panelSelectIsland.GetComponent<IslandSelectMenu>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +41,7 @@ public class ShipController : MonoBehaviour
         {
             if (isFirstTime)
             {
-                PanelShip.GetComponent<ShipMenu>().SetShipController(this);
+                PlayerController.panelShip.GetComponent<ShipMenu>().SetShipController(this);
                 isFirstTime = false;
             }
         }
@@ -77,7 +80,8 @@ public class ShipController : MonoBehaviour
             selectPosition.y = 0;
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Island"))
             {
-                Target = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки звідки звозити
+                //Target = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки звідки звозити
+                islandSelectMenu.SetIslandToPanel(hit.collider.gameObject, this);
                 //if (HomeIsland != null) {
                 //    FollowGoal();
                 //}
@@ -101,7 +105,10 @@ public class ShipController : MonoBehaviour
             selectPosition.y = 0;
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Island"))
             {
-                HomeIsland = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки куда ресурси возити
+                //HomeIsland = hit.collider.gameObject.GetComponent<PortPlaseScript>().Port;//для вибору точки куда ресурси возити
+
+                islandSelectMenu.SetIslandToPanel(hit.collider.gameObject, this);
+
                 //if (Target != null)
                 //{
                 //    FollowGoal();
@@ -111,6 +118,16 @@ public class ShipController : MonoBehaviour
 
         }
         return false;
+    }
+
+
+    public void SetTargetIsland(GameObject gameObject)
+    {
+        Target = gameObject;
+    }
+    public void SetHomeIsland(GameObject gameObject)
+    {
+        HomeIsland=gameObject;
     }
     
     public void SetMoving(bool value)

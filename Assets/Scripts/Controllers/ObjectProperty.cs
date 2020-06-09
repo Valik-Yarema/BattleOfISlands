@@ -9,25 +9,6 @@ public class ObjectProperty : MonoBehaviour
     public virtual void SetIsSelected(bool value)
     {
         IsSelected = value;
-        WhenSelected();
+        selectObject.SetActive(true);
     }
-
-    private void Update()
-    {
-
-    }
-
-
-    void WhenSelected()
-    {
-        if (IsSelected)
-        {
-            selectObject.SetActive(true);
-        }
-        else
-        {
-            selectObject.SetActive(false);
-        }
-    }
-
 }

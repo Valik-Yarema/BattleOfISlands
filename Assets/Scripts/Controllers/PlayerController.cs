@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour, IPunObservable
     public List<GameObject> Ships;
     public GameObject panelShip;
     public GameObject panelIsland;
-
+    public GameObject panelResources;
+    public GameObject panelSelectIsland;
+    protected ListResources listResources;
+     
 
     private new Renderer renderer;
 
@@ -22,16 +25,21 @@ public class PlayerController : MonoBehaviour, IPunObservable
         
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         photonView = GetComponent<PhotonView>();
         renderer = GetComponent<Renderer>();
+        listResources = panelResources.GetComponent<ListResources>();
+        listResources.PlayerController = this;
         foreach (var item in ShipsPrefabs)
         {
-            item.GetComponent<ShipController>().PanelShip = panelShip;
+            item.GetComponent<ShipController>().PlayerController = this;
         }
-      
+
+        foreach (var item in listResources.TextObjects)
+        {
+            item.text = Random.Range(0, 100).ToString();
+        }
     }
 
     void Update()
@@ -54,6 +62,12 @@ public class PlayerController : MonoBehaviour, IPunObservable
         index = Random.Range(0, ShipsPrefabs.Count() - 1);
         
         GameObject ship = PhotonNetwork.Instantiate(ShipsPrefabs[index], ShipsPrefabs[index].transform.position, ShipsPrefabs[index].transform.rotation, 0);
+        Ships.Add(ship);
+    }
+
+    public void AddShip(int index, Transform transform)
+    {
+        GameObject ship = PhotonNetwork.Instantiate(ShipsPrefabs[index], transform.position, transform.rotation, 0);
         Ships.Add(ship);
     }
 }
