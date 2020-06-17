@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d27c16945e408408a52c93ec36d780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerController: {fileID: 0}
+  playerController: {fileID: 0}
   HomeIsland: {fileID: 0}
   Target: {fileID: 0}
   speed: 20

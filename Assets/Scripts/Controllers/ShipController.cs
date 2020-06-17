@@ -8,7 +8,7 @@ using UnityEngine;
 public class ShipController : MonoBehaviour
 {
     protected PhotonView photonView;
-    public PlayerController PlayerController;
+    public PlayerController playerController;
     public GameObject HomeIsland;
     public GameObject Target;
     public float speed = 5;
@@ -30,9 +30,9 @@ public class ShipController : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         customProperty = GetComponent<ObjectProperty>();
         pathManager = GetComponentInChildren<PathRequestManager>();
-        islandSelectMenu = PlayerController.panelSelectIsland.GetComponent<IslandSelectMenu>();
+        islandSelectMenu = playerController.panelSelectIsland;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +41,7 @@ public class ShipController : MonoBehaviour
         {
             if (isFirstTime)
             {
-                PlayerController.panelShip.GetComponent<ShipMenu>().SetShipController(this);
+                playerController.panelShip.SetShipController(this);
                 isFirstTime = false;
             }
         }
@@ -56,6 +56,11 @@ public class ShipController : MonoBehaviour
         }
 
        //photonView.RPC("FollowPath", RpcTarget.AllViaServer);
+    }
+
+    public void SetPlayerController(PlayerController controller)
+    {
+        playerController = controller;
     }
 
     public void SelectPanel()

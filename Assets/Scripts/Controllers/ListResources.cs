@@ -8,6 +8,10 @@ public class ListResources : MonoBehaviour
 {
 
     public List<Text> TextObjects;
-    public PlayerController PlayerController;
+    protected PlayerController playerController;
  
+    public void SetPlayerController(PlayerController controller)
+    {
+        playerController = controller;
+    }
 }

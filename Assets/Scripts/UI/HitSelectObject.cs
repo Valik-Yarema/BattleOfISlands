@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,18 @@ public class HitSelectObject : MonoBehaviour
                     if (selectTarget != null)
                     {
                         selectTarget.SetIsSelected(true);
+                        try
+                        {
+                           var islandController= selectTarget.gameObject.GetComponent<IslandController>();
+                            if (islandController.IslandType == BentIslandType.Mine)
+                            {
+                                islandController.SetToPanelIslandController();
+                            }
+
+                        }catch(Exception ex)
+                        {
+
+                        }
                     }
                 }
             }

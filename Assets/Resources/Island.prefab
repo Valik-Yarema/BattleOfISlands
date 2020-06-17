@@ -118,13 +118,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2437210291764992961}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.046099994, z: -0.007699995}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.07, z: 0.006}
   m_LocalScale: {x: 0.010000001, y: 0.018052997, z: 0.023325996}
   m_Children: []
   m_Father: {fileID: 7517104912880272782}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6985866667623157108
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PortObject: {fileID: 0}
   PanelIsland: {fileID: 0}
-  _islandType: 0
+  islandType: 0
 --- !u!114 &595434981274687451
 MonoBehaviour:
   m_ObjectHideFlags: 0

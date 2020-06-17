@@ -52,6 +52,9 @@ MonoBehaviour:
   Ships: []
   panelShip: {fileID: 0}
   panelIsland: {fileID: 0}
+  panelResources: {fileID: 0}
+  panelSelectIsland: {fileID: 0}
+  PlayerIslands: []
 --- !u!114 &5814834985187606234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +70,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 5814834985187606228}

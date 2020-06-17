@@ -16,6 +16,9 @@ public class BaseMenu : MonoBehaviour
         panel.SetActive(value);
     }
 
-    public virtual void OnCloseMenu() { }
+    public virtual void OnCloseMenu() 
+    {
+        panel.SetActive(false);
+    }
     
 }

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{EA0CF93C-75D7-951F-4F7F-FEC367533FDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\Controllers\PlayerGameManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShipController.cs" />
     <Compile Include="Assets\Scripts\Game\BattleOfIslandGame.cs" />
+    <Compile Include="Assets\Scripts\Game\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Ship.cs" />
     <Compile Include="Assets\Scripts\Island\BaseIsland.cs" />
     <Compile Include="Assets\Scripts\Island\BentIslandType.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Assets\Scripts\Island\ResourcesCount.cs" />
     <Compile Include="Assets\Scripts\Island\ResourceType.cs" />
     <Compile Include="Assets\Scripts\UI\HitSelectObject.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\AddShipMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\LobbyMainPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\LobbyTopPanel.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\PlayerListEntry.cs" />
@@ -119,6 +122,7 @@
     <None Include="Assets\Material\Ship\License.txt" />
     <None Include="Assets\RRFreelance\IconsPack1_Prehistoric\IconsPack1_About.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
+    <None Include="ClassDiagram1.cd" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/WorkSpace/BattleOfISlands/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

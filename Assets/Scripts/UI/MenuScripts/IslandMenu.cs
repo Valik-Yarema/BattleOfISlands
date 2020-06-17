@@ -5,6 +5,8 @@ using UnityEngine;
 public class IslandMenu : BaseMenu
 {
     public PlayerController playerController;
+    public AddShipMenu addShipMenu;
+    public GameObject selectedIslandObject;
 
     protected IslandController islandController;
     protected ShipController shipController;
@@ -30,5 +32,12 @@ public class IslandMenu : BaseMenu
     public virtual void SetHomeIsland()
     {
         shipController.HomeIsland = islandController.gameObject;
+    }
+
+    public virtual void OnBuyShipButtonClick()
+    {
+        addShipMenu.playerController = playerController;
+        addShipMenu.IslandController = islandController;
+        addShipMenu.gameObject.SetActive(true);
     }
 }

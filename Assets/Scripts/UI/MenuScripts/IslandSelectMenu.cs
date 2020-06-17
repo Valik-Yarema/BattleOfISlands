@@ -9,7 +9,7 @@ public class IslandSelectMenu : MonoBehaviour
     public GameObject PanelHomeIsland;
     public GameObject PanelEnemyIsland;
 
-
+    protected PlayerController playerController;
     protected ShipController shipController;
     protected IslandController islandController;
     protected bool isEnable = false;
@@ -20,10 +20,16 @@ public class IslandSelectMenu : MonoBehaviour
         islandController = islandTop.GetComponent<IslandController>();
         OnSetEnablePanel();
     }
+    public void SetPlayerController(PlayerController controller)
+    {
+        playerController = controller;
+    }
 
     public void FoundCity()
     {
         islandController.IslandType = BentIslandType.Mine;
+        playerController.PlayerIslands.Add(islandController.gameObject);
+        islandController.PanelIsland = playerController.panelIsland.gameObject;
     }
 
     public void OnSelectWildIsland()

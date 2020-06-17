@@ -31,6 +31,12 @@ public class IslandController : MonoBehaviour
         PortObject = GetComponent<PortPlaseScript>().Port;
     }
 
+    public void SetToPanelIslandController()
+    {
+        PanelIsland.SetActive(true);
+        PanelIsland.GetComponent<IslandMenu>().SetIslandController(this);
+    }
+
    
 
 }

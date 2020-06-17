@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour, IPunObservable
 
     public List<GameObject> ShipsPrefabs;
     public List<GameObject> Ships;
-    public GameObject panelShip;
-    public GameObject panelIsland;
+    public ShipMenu panelShip;
+    public IslandMenu panelIsland;
     public GameObject panelResources;
-    public GameObject panelSelectIsland;
+    public IslandSelectMenu panelSelectIsland;
+    public List<GameObject> PlayerIslands;
     protected ListResources listResources;
      
 
@@ -30,10 +31,13 @@ public class PlayerController : MonoBehaviour, IPunObservable
         photonView = GetComponent<PhotonView>();
         renderer = GetComponent<Renderer>();
         listResources = panelResources.GetComponent<ListResources>();
-        listResources.PlayerController = this;
+        listResources.SetPlayerController(this);
+        panelSelectIsland.SetPlayerController(this);
+        
+        
         foreach (var item in ShipsPrefabs)
         {
-            item.GetComponent<ShipController>().PlayerController = this;
+            item.GetComponent<ShipController>().playerController = this;
         }
 
         foreach (var item in listResources.TextObjects)
@@ -70,4 +74,11 @@ public class PlayerController : MonoBehaviour, IPunObservable
         GameObject ship = PhotonNetwork.Instantiate(ShipsPrefabs[index], transform.position, transform.rotation, 0);
         Ships.Add(ship);
     }
+    public void AddShip(string nameShip, Transform transform)
+    {
+        GameObject ship = PhotonNetwork.Instantiate(ShipsPrefabs.First(s=>s.name==nameShip), transform.position, transform.rotation, 0);
+        Ships.Add(ship);
+    }
+
+
 }
